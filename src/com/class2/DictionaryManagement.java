@@ -44,4 +44,16 @@ public class DictionaryManagement {
         }
         return result;
     }
+    public boolean deleteDoctor(Dictionary dictionary) throws Exception {
+        if (mapDictionary == null) {
+            throw new Exception("Database doesn't exist");
+        }
+        if (dictionary == null)
+            throw new Exception("Data doesn't exist");
+        if (!mapDictionary.containsKey(dictionary.getWord())) {
+            throw new Exception("Word doesn't exist");
+        }
+        mapDictionary.remove(dictionary.getWord());
+        return true;
+    }
 }
